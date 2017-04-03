@@ -46,8 +46,10 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-     <Compile Include="Assets\BoardBuilder.cs" />
-     <Compile Include="Assets\ScreenScript.cs" />
+     <Compile Include="Assets\Background.cs" />
+     <Compile Include="Assets\Board.cs" />
+     <Compile Include="Assets\GameCanvas.cs" />
+     <Compile Include="Assets\TurnStack.cs" />
  <Reference Include="UnityEngine.UI">
  <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
  </Reference>
