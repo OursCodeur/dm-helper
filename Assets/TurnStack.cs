@@ -12,9 +12,9 @@ public class TurnStack : MonoBehaviour {
         foreach (Toggle square in squares) { square.isOn = false; }
     }
 
-    public void ToggleFreezeBoard(Toggle fromButton) {
+    public void ToggleFreezeBoard(Toggle toggleButton) {
 
-        bool boardFrozen = !fromButton.isOn;
+        bool boardFrozen = !toggleButton.isOn;
         BoardFreezeOverlay.GetComponent<Graphic>().raycastTarget = boardFrozen;
     }
 }
