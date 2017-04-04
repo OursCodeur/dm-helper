@@ -48,6 +48,8 @@
   <ItemGroup>
      <Compile Include="Assets\Background.cs" />
      <Compile Include="Assets\Board.cs" />
+     <Compile Include="Assets\BoardHorizOverlay.cs" />
+     <Compile Include="Assets\BoardVertOverlay.cs" />
      <Compile Include="Assets\GameCanvas.cs" />
      <Compile Include="Assets\TurnStack.cs" />
  <Reference Include="UnityEngine.UI">
