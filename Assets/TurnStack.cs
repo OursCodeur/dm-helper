@@ -17,4 +17,15 @@ public class TurnStack : MonoBehaviour {
         bool boardFrozen = !toggleButton.isOn;
         BoardFreezeOverlay.GetComponent<Graphic>().raycastTarget = boardFrozen;
     }
+
+    public void ToggleSquareCollisions(Toggle toggleButton) {
+
+        bool collisionDisabled = !toggleButton.isOn;
+
+        GameObject[] squares = GameObject.FindGameObjectsWithTag("Square");
+        foreach (GameObject square in squares) { square.GetComponent<Toggle>().GetComponent<CanvasGroup>().blocksRaycasts = collisionDisabled; }
+
+        GameObject[] edges = GameObject.FindGameObjectsWithTag("Edge");
+        foreach (GameObject edge in edges) { edge.GetComponent<Toggle>().GetComponent<CanvasGroup>().blocksRaycasts = !collisionDisabled; }
+    }
 }
