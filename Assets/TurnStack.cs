@@ -8,16 +8,20 @@ public class TurnStack : MonoBehaviour {
 	public GameObject BoardHorizOverlay;
     public GameObject BoardFreezeOverlay;
 
+	private bool _reset = false;
+
     public void ClearBoardMethod() {
 
+		_reset = !_reset;
+
         Toggle[] squares = Board.GetComponentsInChildren<Toggle>();
-		foreach (Toggle square in squares) { square.isOn = false; }
+		foreach (Toggle square in squares) { square.isOn = _reset; }
 
 		Toggle[] vEdges = BoardVertOverlay.GetComponentsInChildren<Toggle>();
-		foreach (Toggle vEdge in vEdges) { vEdge.isOn = false; }
+		foreach (Toggle vEdge in vEdges) { vEdge.isOn = _reset; }
 
 		Toggle[] hEdges = BoardHorizOverlay.GetComponentsInChildren<Toggle>();
-		foreach (Toggle hEdge in hEdges) { hEdge.isOn = false; }
+		foreach (Toggle hEdge in hEdges) { hEdge.isOn = _reset; }
     }
 
     public void ToggleFreezeBoard(Toggle toggleButton) {
