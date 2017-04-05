@@ -4,16 +4,20 @@ using UnityEngine.UI;
 
 public class BoardHorizOverlay : MonoBehaviour {
 
-    public Toggle BoardSquareHorizEdge;
+	public Toggle 		BoardSquareHorizEdge;
+	public Toggle[,] 	horizEdgesArray;
 
-    int WIDTH = 17;
-    int HEIGHT = 16;
+	int WIDTH 			= 17;
+	int HEIGHT 			= 16;
 
-    void Start() {
+	void Start() {
 
-        foreach (int x in Enumerable.Range(0, WIDTH * HEIGHT)) {
-            Toggle newSquare = Instantiate(BoardSquareHorizEdge);
-            newSquare.transform.SetParent(this.transform, false);
-        }
-    }
+		horizEdgesArray = new Toggle[WIDTH,HEIGHT];
+		foreach (int x in Enumerable.Range(0, WIDTH)) {
+			foreach (int y in Enumerable.Range(0, HEIGHT)) {
+				horizEdgesArray [x, y] = Instantiate(BoardSquareHorizEdge) as Toggle;
+				horizEdgesArray [x, y].transform.SetParent(this.transform, false);
+			}
+		}
+	}
 }

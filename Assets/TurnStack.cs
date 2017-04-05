@@ -24,15 +24,15 @@ public class TurnStack : MonoBehaviour {
 		foreach (Toggle hEdge in hEdges) { hEdge.isOn = _reset; }
     }
 
-    public void ToggleFreezeBoard(Toggle toggleButton) {
+    public void ToggleFreezeBoard(Toggle ToggleButton) {
 
-        bool boardFrozen = !toggleButton.isOn;
+        bool boardFrozen = !ToggleButton.isOn;
         BoardFreezeOverlay.GetComponent<Graphic>().raycastTarget = boardFrozen;
     }
 
-    public void ToggleSquareCollisions(Toggle toggleButton) {
+    public void ToggleSquareCollisions(Toggle ToggleButton) {
 
-        bool collisionDisabled = !toggleButton.isOn;
+        bool collisionDisabled = !ToggleButton.isOn;
 
         GameObject[] squares = GameObject.FindGameObjectsWithTag("Square");
         foreach (GameObject square in squares) { square.GetComponent<Toggle>().GetComponent<CanvasGroup>().blocksRaycasts = collisionDisabled; }
