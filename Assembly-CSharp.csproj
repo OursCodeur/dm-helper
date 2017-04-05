@@ -53,6 +53,7 @@
      <Compile Include="Assets\GameCanvas.cs" />
      <Compile Include="Assets\OnSquareChanged.cs" />
      <Compile Include="Assets\TurnStack.cs" />
+     <Compile Include="Assets\TwoDCoord.cs" />
  <Reference Include="UnityEngine.UI">
  <HintPath>/opt/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
  </Reference>

@@ -13,9 +13,11 @@ public class Board : MonoBehaviour {
     void Start() {
 
 		squaresArray = new Toggle[WIDTH,HEIGHT];
-		foreach (int x in Enumerable.Range(0, WIDTH)) {
-			foreach (int y in Enumerable.Range(0, HEIGHT)) {
-				squaresArray [x, y] = Toggle.Instantiate(BoardSquare) as Toggle;
+		foreach (int y in Enumerable.Range(0, HEIGHT)) {
+			foreach (int x in Enumerable.Range(0, WIDTH)) {
+				squaresArray [x, y] = Toggle.Instantiate(BoardSquare);
+				squaresArray [x, y].GetComponent<TwoDCoord> ().x = x;
+				squaresArray [x, y].GetComponent<TwoDCoord> ().y = y;
 				squaresArray [x, y].transform.SetParent(this.transform, false);
 			}
 		}
