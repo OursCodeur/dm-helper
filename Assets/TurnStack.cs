@@ -3,13 +3,21 @@ using UnityEngine.UI;
 
 public class TurnStack : MonoBehaviour {
 
-    public GameObject Board;
+	public GameObject Board;
+	public GameObject BoardVertOverlay;
+	public GameObject BoardHorizOverlay;
     public GameObject BoardFreezeOverlay;
 
     public void ClearBoardMethod() {
 
         Toggle[] squares = Board.GetComponentsInChildren<Toggle>();
-        foreach (Toggle square in squares) { square.isOn = false; }
+		foreach (Toggle square in squares) { square.isOn = false; }
+
+		Toggle[] vEdges = BoardVertOverlay.GetComponentsInChildren<Toggle>();
+		foreach (Toggle vEdge in vEdges) { vEdge.isOn = false; }
+
+		Toggle[] hEdges = BoardHorizOverlay.GetComponentsInChildren<Toggle>();
+		foreach (Toggle hEdge in hEdges) { hEdge.isOn = false; }
     }
 
     public void ToggleFreezeBoard(Toggle toggleButton) {
