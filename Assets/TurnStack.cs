@@ -7,40 +7,52 @@ public class TurnStack : MonoBehaviour {
 	public GameObject BoardVertOverlay;
 	public GameObject BoardHorizOverlay;
     public GameObject PlayerGrid;
+	public Toggle EdgeModeToggle;
+	public Button ClearBoardButton;
 
-	private bool _reset = false;
+	private bool _reset = true;
 
     public void ClearBoardMethod() {
 
 		_reset = !_reset;
 
-        Toggle[] squares = Board.GetComponentsInChildren<Toggle>();
-		foreach (Toggle square in squares) { square.isOn = _reset; }
+		foreach (Toggle square in Board.GetComponentsInChildren<Toggle>()) {
+			square.isOn = _reset;
+		}
 
-		Toggle[] vEdges = BoardVertOverlay.GetComponentsInChildren<Toggle>();
-		foreach (Toggle vEdge in vEdges) { vEdge.isOn = _reset; }
+		foreach (Toggle vEdge in BoardVertOverlay.GetComponentsInChildren<Toggle>()) {
+			vEdge.isOn = _reset;
+		}
 
-		Toggle[] hEdges = BoardHorizOverlay.GetComponentsInChildren<Toggle>();
-		foreach (Toggle hEdge in hEdges) { hEdge.isOn = _reset; }
+		foreach (Toggle hEdge in BoardHorizOverlay.GetComponentsInChildren<Toggle>()) {
+			hEdge.isOn = _reset;
+		}
     }
 
     public void ToggleFreezeBoard(Toggle ToggleButton) {
 
-        bool boardFrozen = !ToggleButton.isOn;
-		PlayerGrid.GetComponent<Graphic>().raycastTarget = boardFrozen;
-		Button[] gridSquares = PlayerGrid.GetComponentsInChildren<Button> ();
-		foreach (Button gridSquare in gridSquares) { gridSquare.GetComponent<Image> ().raycastTarget = boardFrozen; }
+        bool boardEnabled = ToggleButton.isOn;
+
+		EdgeModeToggle.interactable 						=  boardEnabled;
+		ClearBoardButton.interactable 						=  boardEnabled;
+		PlayerGrid.GetComponent<Graphic>().raycastTarget 	= !boardEnabled;
+
+		foreach (Button gridSquare in PlayerGrid.GetComponentsInChildren<Button>()) {
+			gridSquare.GetComponent<Image> ().raycastTarget = !boardEnabled;
+		}
+
+		ToggleButton.GetComponentInChildren<Text>().text = (boardEnabled == true) ? "Edit Mode" : "Play Mode" ;
 
     }
 
     public void ToggleSquareCollisions(Toggle ToggleButton) {
 
-        bool collisionDisabled = !ToggleButton.isOn;
+		foreach (GameObject square in GameObject.FindGameObjectsWithTag("Square")) {
+			square.GetComponent<Toggle>().GetComponent<CanvasGroup>().blocksRaycasts = !ToggleButton.isOn;
+		}
 
-        GameObject[] squares = GameObject.FindGameObjectsWithTag("Square");
-        foreach (GameObject square in squares) { square.GetComponent<Toggle>().GetComponent<CanvasGroup>().blocksRaycasts = collisionDisabled; }
-
-        GameObject[] edges = GameObject.FindGameObjectsWithTag("Edge");
-        foreach (GameObject edge in edges) { edge.GetComponent<Toggle>().GetComponent<CanvasGroup>().blocksRaycasts = !collisionDisabled; }
+		foreach (GameObject edge in GameObject.FindGameObjectsWithTag("Edge")) {
+			edge.GetComponent<Toggle>().GetComponent<CanvasGroup>().blocksRaycasts = ToggleButton.isOn;
+		}
     }
 }

@@ -23,6 +23,5 @@ public class PlayerGrid : MonoBehaviour {
 				squaresArray [x, y].transform.SetParent(this.transform, false);
 			}
 		}
-		
 	}
 }

@@ -54,6 +54,7 @@
      <Compile Include="Assets\OnGridClicked.cs" />
      <Compile Include="Assets\OnSquareChanged.cs" />
      <Compile Include="Assets\PlayerGrid.cs" />
+     <Compile Include="Assets\TurnGrid.cs" />
      <Compile Include="Assets\TurnStack.cs" />
      <Compile Include="Assets\TwoDCoord.cs" />
  <Reference Include="UnityEngine.UI">
