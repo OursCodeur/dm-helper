@@ -6,7 +6,7 @@ public class TurnStack : MonoBehaviour {
 	public GameObject Board;
 	public GameObject BoardVertOverlay;
 	public GameObject BoardHorizOverlay;
-    public GameObject BoardFreezeOverlay;
+    public GameObject PlayerGrid;
 
 	private bool _reset = false;
 
@@ -27,7 +27,10 @@ public class TurnStack : MonoBehaviour {
     public void ToggleFreezeBoard(Toggle ToggleButton) {
 
         bool boardFrozen = !ToggleButton.isOn;
-        BoardFreezeOverlay.GetComponent<Graphic>().raycastTarget = boardFrozen;
+		PlayerGrid.GetComponent<Graphic>().raycastTarget = boardFrozen;
+		Button[] gridSquares = PlayerGrid.GetComponentsInChildren<Button> ();
+		foreach (Button gridSquare in gridSquares) { gridSquare.GetComponent<Image> ().raycastTarget = boardFrozen; }
+
     }
 
     public void ToggleSquareCollisions(Toggle ToggleButton) {
