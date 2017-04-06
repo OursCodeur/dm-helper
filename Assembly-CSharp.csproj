@@ -51,6 +51,7 @@
      <Compile Include="Assets\BoardHorizOverlay.cs" />
      <Compile Include="Assets\BoardVertOverlay.cs" />
      <Compile Include="Assets\GameCanvas.cs" />
+     <Compile Include="Assets\GridButtonInput.cs" />
      <Compile Include="Assets\OnGridClicked.cs" />
      <Compile Include="Assets\OnSquareChanged.cs" />
      <Compile Include="Assets\PCNPC.cs" />

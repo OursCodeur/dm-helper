@@ -1,8 +1,11 @@
 ﻿<Properties>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/TurnStack.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/GridButtonInput.cs">
     <Files>
       <File FileName="Assets/TurnStack.cs" Line="34" Column="47" />
+      <File FileName="Assets/OnGridClicked.cs" Line="6" Column="27" />
+      <File FileName="Assets/PCNPC.cs" Line="12" Column="50" />
+      <File FileName="Assets/GridButtonInput.cs" Line="13" Column="43" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
