@@ -35,8 +35,6 @@ C:\Users\T800\Documents\DM Helper GUI\obj\Debug\Assembly-CSharp.dll
 C:\Users\T800\Documents\DM Helper GUI\obj\Debug\Assembly-CSharp.pdb
 C:\Users\T800\Documents\dm-helper\Temp\bin\Debug\Assembly-CSharp.dll
 C:\Users\T800\Documents\dm-helper\Temp\bin\Debug\Assembly-CSharp.pdb
-C:\Users\T800\Documents\dm-helper\Temp\bin\Debug\Assembly-CSharp.dll.CodeAnalysisLog.xml
-C:\Users\T800\Documents\dm-helper\Temp\bin\Debug\Assembly-CSharp.dll.lastcodeanalysissucceeded
 C:\Users\T800\Documents\dm-helper\Temp\bin\Debug\nunit.framework.dll
 C:\Users\T800\Documents\dm-helper\Temp\bin\Debug\UnityEditor.dll
 C:\Users\T800\Documents\dm-helper\Temp\bin\Debug\UnityEditor.iOS.Extensions.Common.dll

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class PCNPC : MonoBehaviour {
+public class GridButton : MonoBehaviour {
 	
 	public InputField 	thisInputField;
 	private Button 		_parent;

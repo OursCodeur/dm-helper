@@ -16,7 +16,7 @@ public class BoardVertOverlay : MonoBehaviour {
 		foreach (int y in Enumerable.Range(0, HEIGHT)) {
 			foreach (int x in Enumerable.Range(0, WIDTH)) {
 				vertEdgesArray [x, y] = Instantiate(BoardSquareVertEdge);
-				vertEdgesArray [x, y].transform.SetParent(this.transform, false);
+				vertEdgesArray [x, y].transform.SetParent(transform, false);
 			}
         }
     }

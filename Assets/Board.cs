@@ -18,7 +18,7 @@ public class Board : MonoBehaviour {
 				squaresArray [x, y] = Toggle.Instantiate(BoardSquare);
 				squaresArray [x, y].GetComponent<TwoDCoord> ().x = x;
 				squaresArray [x, y].GetComponent<TwoDCoord> ().y = y;
-				squaresArray [x, y].transform.SetParent(this.transform, false);
+				squaresArray [x, y].transform.SetParent(transform, false);
 			}
 		}
 	}

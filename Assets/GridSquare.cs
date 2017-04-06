@@ -1,15 +1,13 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.UI;
 
-public class OnGridClicked : MonoBehaviour {
+public class GridSquare : MonoBehaviour {
 
-	private	Button 		thisButton;
+	private	Button thisButton;
 
 	void Start () {
 
-		thisButton 		= this.GetComponent<Button> ();
+		thisButton = GetComponent<Button> ();
 		thisButton.onClick.AddListener (delegate {ButtonClicked(); });
 	}
 

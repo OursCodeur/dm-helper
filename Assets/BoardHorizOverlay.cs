@@ -16,7 +16,7 @@ public class BoardHorizOverlay : MonoBehaviour {
 		foreach (int y in Enumerable.Range(0, HEIGHT)) {
 			foreach (int x in Enumerable.Range(0, WIDTH)) {
 				horizEdgesArray [x, y] = Instantiate(BoardSquareHorizEdge);
-				horizEdgesArray [x, y].transform.SetParent(this.transform, false);
+				horizEdgesArray [x, y].transform.SetParent(transform, false);
 			}
 		}
 	}

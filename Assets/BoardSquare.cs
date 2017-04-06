@@ -1,15 +1,13 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.UI;
 
-public class OnSquareChanged : MonoBehaviour {
+public class BoardSquare : MonoBehaviour {
 
 	private	Toggle thisToggle;
 	
 	void Start () {
 
-		thisToggle = this.GetComponent<Toggle> ();
+		thisToggle = GetComponent<Toggle> ();
 		thisToggle.onValueChanged.AddListener (delegate {ToggleEdges(); });
 	}
 
