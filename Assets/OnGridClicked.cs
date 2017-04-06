@@ -5,11 +5,13 @@ using UnityEngine.UI;
 
 public class OnGridClicked : MonoBehaviour {
 
-	private	Button thisButton;
+	private	Button 	thisButton;
+	private PCNPC 	thisPcNpc;
 
 	void Start () {
-
-		thisButton = this.GetComponent<Button> ();
+		
+		thisPcNpc 	= this.GetComponent<PCNPC> ();
+		thisButton 	= this.GetComponent<Button> ();
 		thisButton.onClick.AddListener (delegate {ButtonClicked(); });
 	}
 
@@ -17,6 +19,12 @@ public class OnGridClicked : MonoBehaviour {
 
 		int x = thisButton.GetComponent<TwoDCoord> ().x;
 		int y = thisButton.GetComponent<TwoDCoord> ().y;
+
+		if (thisPcNpc._name == "") {
+
+		} else {
+			/**/
+		}
 
 	}
 }
