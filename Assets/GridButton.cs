@@ -1,13 +1,12 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.UI;
 
 public class GridButton : MonoBehaviour {
 	
 	public InputField 	thisInputField;
-	private Button 		_parent;
-	public string 		_name;
+    public Toggle       thisTurnIndicator;
+    public Outline      thisOutline;
+    private Button 		_parent;
 	
 	void Start () {
 
@@ -19,10 +18,14 @@ public class GridButton : MonoBehaviour {
 
 		if (thisInputField.gameObject.activeSelf == false) {
 			thisInputField.gameObject.SetActive (true);
-		} else {
+            thisTurnIndicator.gameObject.SetActive(true);
+        } else {
 			if (thisInputField.text == "") {
 				thisInputField.gameObject.SetActive (false);
-			}
+                thisTurnIndicator.gameObject.SetActive(false);
+            } else {
+
+            }
 		}
 	}
 }

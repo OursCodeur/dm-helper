@@ -13,8 +13,8 @@ public class GridSquare : MonoBehaviour {
 
 	public void ButtonClicked() {
 
-		int x = thisButton.GetComponent<TwoDCoord> ().x;
-		int y = thisButton.GetComponent<TwoDCoord> ().y;
+		/*int x = thisButton.GetComponent<TwoDCoord> ().x;
+		int y = thisButton.GetComponent<TwoDCoord> ().y;*/
 
 	}
 }

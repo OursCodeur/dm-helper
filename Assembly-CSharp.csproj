@@ -57,6 +57,7 @@
      <Compile Include="Assets\GridSquare.cs" />
      <Compile Include="Assets\PlayerGrid.cs" />
      <Compile Include="Assets\TurnGrid.cs" />
+     <Compile Include="Assets\TurnIndicator.cs" />
      <Compile Include="Assets\TurnStack.cs" />
      <Compile Include="Assets\TwoDCoord.cs" />
  <Reference Include="UnityEngine.UI">
