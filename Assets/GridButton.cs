@@ -4,7 +4,6 @@ using UnityEngine.UI;
 public class GridButton : MonoBehaviour {
 	
 	public InputField 	thisInputField;
-    public Toggle       thisTurnIndicator;
     public Outline      thisOutline;
     private Button 		_parent;
 	
@@ -18,13 +17,13 @@ public class GridButton : MonoBehaviour {
 
 		if (thisInputField.gameObject.activeSelf == false) {
 			thisInputField.gameObject.SetActive (true);
-            thisTurnIndicator.gameObject.SetActive(true);
         } else {
 			if (thisInputField.text == "") {
 				thisInputField.gameObject.SetActive (false);
-                thisTurnIndicator.gameObject.SetActive(false);
+                thisOutline.effectColor = new Color(0, 0, 0, .5f);
+                foreach (InputField field in thisInputField.GetComponentsInChildren<InputField>()) { field.text = ""; }
             } else {
-
+                /**/
             }
 		}
 	}
