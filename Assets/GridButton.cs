@@ -6,16 +6,17 @@ public class GridButton : MonoBehaviour {
 	public InputField 	thisInputField;
 	public Outline      thisOutline;
 	public TwoDCoord 	position;
-	private Button 		_parent;
-	public  Button 		thisColorPicker;
-	
-	void Start () {
+	public Button 		thisColorPicker;
+    public GameObject   thisTurnIndicator;
+    private Button      _parent;
+
+    void Start () {
 
 		_parent = this.transform.GetComponent<Button>();
 		_parent.onClick.AddListener (delegate {ButtonClicked(); });
 		_parent.GetComponent<TwoDCoord>().x = -1;
 		_parent.GetComponent<TwoDCoord>().y = -1;
-	}
+    }
 	
 	public void ButtonClicked() {
 
@@ -23,9 +24,19 @@ public class GridButton : MonoBehaviour {
 			thisInputField.gameObject.SetActive (true);
         } else {
 			if (thisInputField.text == "") {
+
 				thisInputField.gameObject.SetActive (false);
                 thisOutline.effectColor = new Color(0, 0, 0, .5f);
+                thisColorPicker.GetComponent<Graphic>().color = new Color(.33f, .33f, .33f, 1);
                 foreach (InputField field in thisInputField.GetComponentsInChildren<InputField>()) {field.text = ""; }
+
+                if (_parent.GetComponent<TwoDCoord>().x != -1) {
+                    GameObject playerGrid = GameObject.FindGameObjectWithTag("Grid");
+                    Button matchingButton = playerGrid.GetComponent<PlayerGrid>().squaresArray[_parent.GetComponent<TwoDCoord>().x,
+                                                                                               _parent.GetComponent<TwoDCoord>().y].GetComponent<Button>();
+                    matchingButton.GetComponent<Graphic>().raycastTarget = false;
+                    matchingButton.GetComponent<Graphic>().color = new Color(0, 0, 0, 0);
+                }
             } else {
 
                 bool allFieldsCompleted = true;

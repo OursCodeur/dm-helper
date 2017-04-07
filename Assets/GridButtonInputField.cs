@@ -3,7 +3,7 @@ using UnityEngine.UI;
 
 public class GridButtonInputField : MonoBehaviour {
 
-	public InputField parentField;
+	public InputField   parentField;
 
 	void Start () {
 
