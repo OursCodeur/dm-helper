@@ -6,7 +6,8 @@ public class TurnStack : MonoBehaviour {
 	public GameObject Board;
 	public GameObject BoardVertOverlay;
 	public GameObject BoardHorizOverlay;
-    public GameObject PlayerGrid;
+	public GameObject PlayerGrid;
+	public GameObject FreezeStackPanel;
 	public Toggle EdgeModeToggle;
 	public Button ClearBoardButton;
 
@@ -33,9 +34,10 @@ public class TurnStack : MonoBehaviour {
 
         bool boardEnabled = ToggleButton.isOn;
 
-		EdgeModeToggle.interactable 						=  boardEnabled;
-		ClearBoardButton.interactable 						=  boardEnabled;
-		PlayerGrid.GetComponent<Graphic>().raycastTarget 	= !boardEnabled;
+		EdgeModeToggle.interactable 							=  boardEnabled;
+		ClearBoardButton.interactable 							=  boardEnabled;
+		PlayerGrid.GetComponent<Graphic>().raycastTarget 		= !boardEnabled;
+		FreezeStackPanel.GetComponent<Graphic>().raycastTarget 	=  boardEnabled;
 
 		foreach (Button gridSquare in PlayerGrid.GetComponentsInChildren<Button>()) {
 			gridSquare.GetComponent<Image> ().raycastTarget = !boardEnabled;
