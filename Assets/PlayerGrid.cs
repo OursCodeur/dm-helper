@@ -6,6 +6,7 @@ public class PlayerGrid : MonoBehaviour {
 
 	public Button 		GridSquare;
 	public Button[,] 	squaresArray;
+	public Button 		currentPCNPCButton;
 
 	int WIDTH 			= 17;
 	int HEIGHT 			= 17;
@@ -18,6 +19,7 @@ public class PlayerGrid : MonoBehaviour {
 				squaresArray [x, y] = Instantiate(GridSquare);
 				squaresArray [x, y].GetComponent<TwoDCoord> ().x = x;
 				squaresArray [x, y].GetComponent<TwoDCoord> ().y = y;
+				squaresArray [x, y].GetComponent<GridSquare> ().parentPlayerGrid = this;
 				squaresArray [x, y].transform.SetParent(this.transform, false);
 			}
 		}

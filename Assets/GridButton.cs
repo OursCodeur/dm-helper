@@ -4,7 +4,8 @@ using UnityEngine.UI;
 public class GridButton : MonoBehaviour {
 	
 	public InputField 	thisInputField;
-    public Outline      thisOutline;
+	public Outline      thisOutline;
+	public TwoDCoord 	position;
     private Button 		_parent;
 	
 	void Start () {
@@ -31,9 +32,13 @@ public class GridButton : MonoBehaviour {
 
                     GameObject playerGrid = GameObject.FindGameObjectWithTag("Grid");
                     foreach (Button button in playerGrid.GetComponentsInChildren<Button>()) {
-                        button.GetComponent<Graphic>().raycastTarget = true;
-                        button.GetComponent<Graphic>().color = new Color(.325f, .659f, .82f, .2f);
+						if (button.GetComponent<GridSquare> ().thisPCNPCButton == null || button.GetComponent<GridSquare> ().thisPCNPCButton == _parent ) {
+							button.GetComponent<Graphic> ().raycastTarget = true;
+							button.GetComponent<Graphic> ().color = new Color (.325f, .659f, .82f, .2f);
+						}
                     }
+
+					playerGrid.GetComponent<PlayerGrid>().currentPCNPCButton = _parent;
                 }
             }
 		}

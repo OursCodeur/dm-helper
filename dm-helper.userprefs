@@ -1,18 +1,10 @@
 ﻿<Properties StartupItem="Assembly-CSharp.csproj">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/PCNPC.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/GridButton.cs">
     <Files>
-      <File FileName="Assets/GridButtonInput.cs" Line="8" Column="32" />
-      <File FileName="Assets/BoardVertOverlay.cs" Line="1" Column="1" />
-      <File FileName="Assets/TurnStack.cs" Line="1" Column="1" />
-      <File FileName="Assets/Board.cs" Line="1" Column="1" />
-      <File FileName="Assets/OnSquareChanged.cs" Line="1" Column="1" />
-      <File FileName="Assets/Background.cs" Line="1" Column="1" />
-      <File FileName="Assets/BoardHorizOverlay.cs" Line="1" Column="1" />
-      <File FileName="Assets/GameCanvas.cs" Line="1" Column="1" />
-      <File FileName="Assets/TwoDCoord.cs" Line="1" Column="1" />
-      <File FileName="Assets/PCNPC.cs" Line="11" Column="2" />
-      <File FileName="Assets/OnGridClicked.cs" Line="11" Column="3" />
+      <File FileName="Assets/GridSquare.cs" Line="25" Column="4" />
+      <File FileName="Assets/GridButton.cs" Line="21" Column="17" />
+      <File FileName="Assets/PlayerGrid.cs" Line="1" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
