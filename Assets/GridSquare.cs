@@ -34,7 +34,7 @@ public class GridSquare : MonoBehaviour {
 					button.GetComponent<Graphic> ().color = new Color (0, 0, 0, 0);
 				}
 			}
-			thisButton.GetComponent<Graphic> ().color = new Color (Random.Range (0f, 1f), Random.Range (0f, 1f), Random.Range (0f, 1f), 1);
+			thisButton.GetComponent<Graphic> ().color = thisPCNPCButton.GetComponent<GridButton> ().thisColorPicker.GetComponent<Graphic> ().color;
 		}
 	}
 }

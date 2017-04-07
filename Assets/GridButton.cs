@@ -6,7 +6,8 @@ public class GridButton : MonoBehaviour {
 	public InputField 	thisInputField;
 	public Outline      thisOutline;
 	public TwoDCoord 	position;
-    private Button 		_parent;
+	private Button 		_parent;
+	public  Button 		thisColorPicker;
 	
 	void Start () {
 
