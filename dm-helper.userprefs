@@ -1,11 +1,12 @@
 ﻿<Properties StartupItem="Assembly-CSharp.csproj">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/GridSquare.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/GridButton.cs">
     <Files>
-      <File FileName="Assets/GridSquare.cs" Line="11" Column="3" />
-      <File FileName="Assets/GridButton.cs" Line="10" Column="19" />
-      <File FileName="Assets/PlayerGrid.cs" Line="1" Column="1" />
-      <File FileName="Assets/GridButtonColorPicker.cs" Line="1" Column="1" />
+      <File FileName="Assets/TwoDCoord.cs" Line="7" Column="27" />
+      <File FileName="Assets/GridSquare.cs" Line="1" Column="1" />
+      <File FileName="Assets/GridButton.cs" Line="23" Column="37" />
+      <File FileName="Assets/PlayerGrid.cs" Line="8" Column="32" />
+      <File FileName="Assets/GridButtonColorPicker.cs" Line="9" Column="37" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

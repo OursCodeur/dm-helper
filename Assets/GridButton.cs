@@ -13,6 +13,8 @@ public class GridButton : MonoBehaviour {
 
 		_parent = this.transform.GetComponent<Button>();
 		_parent.onClick.AddListener (delegate {ButtonClicked(); });
+		_parent.GetComponent<TwoDCoord>().x = -1;
+		_parent.GetComponent<TwoDCoord>().y = -1;
 	}
 	
 	public void ButtonClicked() {

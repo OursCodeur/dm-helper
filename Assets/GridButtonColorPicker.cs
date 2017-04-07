@@ -6,6 +6,7 @@ using UnityEngine.UI;
 public class GridButtonColorPicker : MonoBehaviour {
 	
 	private Button 		_parent;
+	public TwoDCoord 	_parentTwo2Coords;
 
 	void Start () {
 
@@ -16,6 +17,11 @@ public class GridButtonColorPicker : MonoBehaviour {
 	
 	public void ButtonClicked() {
 
-		_parent.GetComponent<Graphic> ().color = new ColorHSV(Random.Range(0f, 255f), .8f, 1f).ToColor();
+		GameObject playerGrid = GameObject.FindGameObjectWithTag("Grid");
+		float colorComponent = (Input.mousePosition.y - (_parent.GetComponent<RectTransform> ().position.y + _parent.GetComponent<RectTransform> ().rect.yMin)) / 270 * 255;
+		_parent.GetComponent<Graphic> ().color = new ColorHSV(colorComponent, .8f, 1f).ToColor();
+		if (_parentTwo2Coords.y != -1) {
+			playerGrid.GetComponent<PlayerGrid> ().squaresArray [_parentTwo2Coords.x, _parentTwo2Coords.y].GetComponent<Graphic> ().color = new ColorHSV (colorComponent, .8f, 1f).ToColor ();
+		}
 	}
 }

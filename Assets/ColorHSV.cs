@@ -44,9 +44,7 @@ public class ColorHSV : System.Object
 
 		// split across the decimal (ie 3.87 into 3 and 0.87)
 		int i = Mathf.FloorToInt(sector);
-		Debug.Log (i);
 		float f = sector - i;
-		Debug.Log (f);
 
 		float v = this.v;
 		float p = v * ( 1 - s );
