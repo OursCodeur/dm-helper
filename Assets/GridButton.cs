@@ -34,8 +34,16 @@ public class GridButton : MonoBehaviour {
                     GameObject playerGrid = GameObject.FindGameObjectWithTag("Grid");
                     Button matchingButton = playerGrid.GetComponent<PlayerGrid>().squaresArray[_parent.GetComponent<TwoDCoord>().x,
                                                                                                _parent.GetComponent<TwoDCoord>().y].GetComponent<Button>();
-                    matchingButton.GetComponent<Graphic>().raycastTarget = false;
-                    matchingButton.GetComponent<Graphic>().color = new Color(0, 0, 0, 0);
+                    matchingButton.GetComponent<GridSquare>().thisPCNPCButton = null;
+                    playerGrid.GetComponent<PlayerGrid>().currentPCNPCButton = null;
+                    foreach (Button button in playerGrid.GetComponentsInChildren<Button>()) {
+                        if (button.GetComponent<GridSquare>().thisPCNPCButton == null) {
+                            button.GetComponent<Graphic>().raycastTarget = false;
+                            button.GetComponent<Graphic>().color = new Color(0, 0, 0, 0);
+                        }
+                    }
+                    _parent.GetComponent<TwoDCoord>().x = -1;
+                    _parent.GetComponent<TwoDCoord>().y = -1;
                 }
             } else {
 
