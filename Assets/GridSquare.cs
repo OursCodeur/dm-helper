@@ -25,13 +25,12 @@ public class GridSquare : MonoBehaviour {
 
 			thisPCNPCButton = parentPlayerGrid.GetComponent<PlayerGrid> ().currentPCNPCButton;
 			parentPlayerGrid.GetComponent<PlayerGrid> ().currentPCNPCButton = null;
-			thisPCNPCButton.GetComponent<TwoDCoord> ().x = thisButton.GetComponent<TwoDCoord> ().x;
-			thisPCNPCButton.GetComponent<TwoDCoord> ().y = thisButton.GetComponent<TwoDCoord> ().y;
+			thisPCNPCButton.GetComponent<TwoDCoord> ().coord = thisButton.GetComponent<TwoDCoord> ().coord;
 			
 			foreach (Button button in parentPlayerGrid.GetComponentsInChildren<Button>()) {
 				if (button.GetComponent<GridSquare> ().thisPCNPCButton == null) {
 					button.GetComponent<Graphic> ().raycastTarget = false;
-					button.GetComponent<Graphic> ().color = new Color (0, 0, 0, 0);
+					button.GetComponent<Graphic> ().color = Color.clear;
 				}
 			}
 			thisButton.GetComponent<Graphic> ().color = thisPCNPCButton.GetComponent<GridButton> ().thisColorPicker.GetComponent<Graphic> ().color;

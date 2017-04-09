@@ -17,8 +17,7 @@ public class PlayerGrid : MonoBehaviour {
 		foreach (int y in Enumerable.Range(0, HEIGHT)) {
 			foreach (int x in Enumerable.Range(0, WIDTH)) {
 				squaresArray [x, y] = Instantiate(GridSquare);
-				squaresArray [x, y].GetComponent<TwoDCoord> ().x = x;
-				squaresArray [x, y].GetComponent<TwoDCoord> ().y = y;
+				squaresArray [x, y].GetComponent<TwoDCoord> ().coord = new Vector2(x,y);
 				squaresArray [x, y].GetComponent<GridSquare> ().parentPlayerGrid = this;
 				squaresArray [x, y].transform.SetParent(this.transform, false);
 			}

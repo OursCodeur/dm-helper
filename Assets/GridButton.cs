@@ -14,8 +14,7 @@ public class GridButton : MonoBehaviour {
 
 		_parent = this.transform.GetComponent<Button>();
 		_parent.onClick.AddListener (delegate {ButtonClicked(); });
-		_parent.GetComponent<TwoDCoord>().x = -1;
-		_parent.GetComponent<TwoDCoord>().y = -1;
+        _parent.GetComponent<TwoDCoord>().coord = new Vector2(-1, -1);
     }
 	
 	public void ButtonClicked() {
@@ -30,20 +29,19 @@ public class GridButton : MonoBehaviour {
                 thisColorPicker.GetComponent<Graphic>().color = new Color(.33f, .33f, .33f, 1);
                 foreach (InputField field in thisInputField.GetComponentsInChildren<InputField>()) {field.text = ""; }
 
-                if (_parent.GetComponent<TwoDCoord>().x != -1) {
+                if (_parent.GetComponent<TwoDCoord>().coord != new Vector2(-1, -1)) {
                     GameObject playerGrid = GameObject.FindGameObjectWithTag("Grid");
-                    Button matchingButton = playerGrid.GetComponent<PlayerGrid>().squaresArray[_parent.GetComponent<TwoDCoord>().x,
-                                                                                               _parent.GetComponent<TwoDCoord>().y].GetComponent<Button>();
+                    Button matchingButton = playerGrid.GetComponent<PlayerGrid>().squaresArray[(int)_parent.GetComponent<TwoDCoord>().coord.x,
+                                                                                               (int)_parent.GetComponent<TwoDCoord>().coord.y].GetComponent<Button>();
                     matchingButton.GetComponent<GridSquare>().thisPCNPCButton = null;
                     playerGrid.GetComponent<PlayerGrid>().currentPCNPCButton = null;
                     foreach (Button button in playerGrid.GetComponentsInChildren<Button>()) {
                         if (button.GetComponent<GridSquare>().thisPCNPCButton == null) {
                             button.GetComponent<Graphic>().raycastTarget = false;
-                            button.GetComponent<Graphic>().color = new Color(0, 0, 0, 0);
+                            button.GetComponent<Graphic>().color = Color.clear;
                         }
                     }
-                    _parent.GetComponent<TwoDCoord>().x = -1;
-                    _parent.GetComponent<TwoDCoord>().y = -1;
+                    _parent.GetComponent<TwoDCoord>().coord = new Vector2(-1, -1);
                 }
             } else {
 
@@ -56,8 +54,8 @@ public class GridButton : MonoBehaviour {
                     GameObject mapBoard = GameObject.FindGameObjectWithTag("Board");
                     foreach (Button button in playerGrid.GetComponentsInChildren<Button>()) {
 						if (button.GetComponent<GridSquare> ().thisPCNPCButton == null || button.GetComponent<GridSquare> ().thisPCNPCButton == _parent ) {
-                            int x = button.GetComponent<TwoDCoord>().x;
-                            int y = button.GetComponent<TwoDCoord>().y;
+                            int x = (int)button.GetComponent<TwoDCoord>().coord.x;
+                            int y = (int)button.GetComponent<TwoDCoord>().coord.y;
                             if (mapBoard.GetComponent<Board>().squaresArray[x,y].GetComponent<Toggle>().isOn == false) {
                                 button.GetComponent<Graphic>().raycastTarget = true;
                                 button.GetComponent<Graphic>().color = new Color(.325f, .659f, .82f, .2f);

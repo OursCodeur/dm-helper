@@ -13,10 +13,10 @@ public class BoardSquare : MonoBehaviour {
 
 	public void ToggleEdges() {
 
-		int x = thisToggle.GetComponent<TwoDCoord> ().x;
-		int y = thisToggle.GetComponent<TwoDCoord> ().y;
+        int x = (int)thisToggle.GetComponent<TwoDCoord>().coord.x;
+		int y = (int)thisToggle.GetComponent<TwoDCoord>().coord.y;
 
-		BoardHorizOverlay boardH = GameObject.FindGameObjectWithTag("BoardH").GetComponent<BoardHorizOverlay>();
+        BoardHorizOverlay boardH = GameObject.FindGameObjectWithTag("BoardH").GetComponent<BoardHorizOverlay>();
 		BoardVertOverlay  boardV = GameObject.FindGameObjectWithTag("BoardV").GetComponent<BoardVertOverlay>();
 
 		try { boardH.horizEdgesArray [x  ,y	 ].isOn = thisToggle.isOn; } catch (System.IndexOutOfRangeException) { /**/ }

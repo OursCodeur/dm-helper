@@ -16,9 +16,8 @@ public class Board : MonoBehaviour {
 		foreach (int y in Enumerable.Range(0, HEIGHT)) {
 			foreach (int x in Enumerable.Range(0, WIDTH)) {
 				squaresArray [x, y] = Instantiate(BoardSquare);
-				squaresArray [x, y].GetComponent<TwoDCoord> ().x = x;
-				squaresArray [x, y].GetComponent<TwoDCoord> ().y = y;
-				squaresArray [x, y].transform.SetParent(transform, false);
+				squaresArray [x, y].GetComponent<TwoDCoord> ().coord = new Vector2(x, y);
+                squaresArray [x, y].transform.SetParent(transform, false);
 			}
 		}
 	}

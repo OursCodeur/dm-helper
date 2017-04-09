@@ -16,8 +16,7 @@ public class TurnGrid : MonoBehaviour {
 		foreach (int y in Enumerable.Range(0, HEIGHT)) {
 			foreach (int x in Enumerable.Range(0, WIDTH)) {
 				buttonsArray [x, y] = Instantiate(GridButton);
-				buttonsArray [x, y].GetComponent<TwoDCoord> ().x = x;
-				buttonsArray [x, y].GetComponent<TwoDCoord> ().y = y;
+                buttonsArray [x, y].GetComponent<TwoDCoord>().coord = new Vector2(x, y);
 				buttonsArray [x, y].transform.SetParent(transform, false);
 			}
 		}
