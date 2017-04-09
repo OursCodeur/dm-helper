@@ -3,14 +3,14 @@ using UnityEngine.UI;
 
 public class PlayerSquare : MonoBehaviour {
 
-	public  PlayerSquaresPanel ParentPlayerSquaresPanel;
-	private	Button thisButton;
-	public  Button CurrentPlayerCard;
+	public  PlayerSquaresPanel  ParentPlayerSquaresPanel;
+	private	Button              ParentButton;
+	public  Button              CurrentPlayerCard;
 
 	void Start () {
 
-		thisButton = GetComponent<Button> ();
-		thisButton.onClick.AddListener (delegate {ButtonClicked(); });
+		ParentButton = GetComponent<Button> ();
+		ParentButton.onClick.AddListener (delegate {ButtonClicked(); });
 	}
 
 	public void ButtonClicked() {
@@ -25,7 +25,7 @@ public class PlayerSquare : MonoBehaviour {
 
 			CurrentPlayerCard = ParentPlayerSquaresPanel.GetComponent<PlayerSquaresPanel> ().currentPlayerCard;
             ParentPlayerSquaresPanel.GetComponent<PlayerSquaresPanel> ().currentPlayerCard = null;
-			CurrentPlayerCard.GetComponent<TwoDCoord> ().coord = thisButton.GetComponent<TwoDCoord> ().coord;
+			CurrentPlayerCard.GetComponent<TwoDCoord> ().coord = ParentButton.GetComponent<TwoDCoord> ().coord;
 			
 			foreach (Button button in ParentPlayerSquaresPanel.GetComponentsInChildren<Button>()) {
 				if (button.GetComponent<PlayerSquare> ().CurrentPlayerCard == null) {
@@ -33,7 +33,7 @@ public class PlayerSquare : MonoBehaviour {
 					button.GetComponent<Graphic> ().color = Color.clear;
 				}
 			}
-			thisButton.GetComponent<Graphic> ().color = CurrentPlayerCard.GetComponent<PlayerCard> ().thisColorPicker.GetComponent<Graphic> ().color;
+			ParentButton.GetComponent<Graphic> ().color = CurrentPlayerCard.GetComponent<PlayerCard> ().CardColorPicker.GetComponent<Graphic> ().color;
 		}
 	}
 }
