@@ -7,6 +7,8 @@ public class GridButtonColorPicker : MonoBehaviour {
 	
 	private Button 		_parent;
 	public TwoDCoord 	_parentTwo2Coords;
+    public Color[]      _colorArray;
+    private int         _colorArrayIndex = 0;
 
 	void Start () {
 
@@ -16,12 +18,12 @@ public class GridButtonColorPicker : MonoBehaviour {
 	
 	public void ButtonClicked() {
 
-		GameObject playerGrid = GameObject.FindGameObjectWithTag("Grid");
-		float colorComponent = (Input.mousePosition.y - (_parent.GetComponent<RectTransform> ().position.y + _parent.GetComponent<RectTransform> ().rect.yMin)) / 270 * 255;
-		_parent.GetComponent<Graphic> ().color = new ColorHSV(colorComponent, .8f, .8f).ToColor();
+        _colorArrayIndex = (_colorArrayIndex + 1) % _colorArray.Length;
+		_parent.GetComponent<Graphic> ().color = _colorArray[_colorArrayIndex];
+
 		if (_parentTwo2Coords.y != -1) {
-			playerGrid.GetComponent<PlayerGrid> ().squaresArray [_parentTwo2Coords.x,
-                                                                 _parentTwo2Coords.y].GetComponent<Graphic> ().color = new ColorHSV (colorComponent, .8f, .8f).ToColor ();
+            GameObject playerGrid = GameObject.FindGameObjectWithTag("Grid");
+            playerGrid.GetComponent<PlayerGrid> ().squaresArray [_parentTwo2Coords.x, _parentTwo2Coords.y].GetComponent<Graphic> ().color = _colorArray[_colorArrayIndex];
 		}
 	}
 }

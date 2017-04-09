@@ -51,7 +51,6 @@
      <Compile Include="Assets\BoardHorizOverlay.cs" />
      <Compile Include="Assets\BoardSquare.cs" />
      <Compile Include="Assets\BoardVertOverlay.cs" />
-     <Compile Include="Assets\ColorHSV.cs" />
      <Compile Include="Assets\GameCanvas.cs" />
      <Compile Include="Assets\GridButton.cs" />
      <Compile Include="Assets\GridButtonColorPicker.cs" />
