@@ -56,7 +56,7 @@ public class GridButton : MonoBehaviour {
 						if (button.GetComponent<GridSquare> ().thisPCNPCButton == null || button.GetComponent<GridSquare> ().thisPCNPCButton == _parent ) {
                             int x = (int)button.GetComponent<TwoDCoord>().coord.x;
                             int y = (int)button.GetComponent<TwoDCoord>().coord.y;
-                            if (mapBoard.GetComponent<Board>().squaresArray[x,y].GetComponent<Toggle>().isOn == false) {
+                            if (mapBoard.GetComponent<MapSquaresPanel>().MapSquaresArray[x,y].GetComponent<Toggle>().isOn == false) {
                                 button.GetComponent<Graphic>().raycastTarget = true;
                                 button.GetComponent<Graphic>().color = new Color(.325f, .659f, .82f, .2f);
                             }

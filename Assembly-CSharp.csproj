@@ -46,21 +46,20 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-     <Compile Include="Assets\Background.cs" />
-     <Compile Include="Assets\Board.cs" />
-     <Compile Include="Assets\BoardHorizOverlay.cs" />
-     <Compile Include="Assets\BoardSquare.cs" />
-     <Compile Include="Assets\BoardVertOverlay.cs" />
      <Compile Include="Assets\GameCanvas.cs" />
      <Compile Include="Assets\GridButton.cs" />
      <Compile Include="Assets\GridButtonColorPicker.cs" />
      <Compile Include="Assets\GridButtonInputField.cs" />
      <Compile Include="Assets\GridSquare.cs" />
      <Compile Include="Assets\HPInputField.cs" />
+     <Compile Include="Assets\MapHorizEdgesPanel.cs" />
+     <Compile Include="Assets\MapSquare.cs" />
+     <Compile Include="Assets\MapSquaresPanel.cs" />
+     <Compile Include="Assets\MapVertEdgesPanel.cs" />
+     <Compile Include="Assets\PlayerCardsPanel.cs" />
      <Compile Include="Assets\PlayerGrid.cs" />
      <Compile Include="Assets\TurnGrid.cs" />
      <Compile Include="Assets\TurnIndicator.cs" />
-     <Compile Include="Assets\TurnStack.cs" />
      <Compile Include="Assets\TwoDCoord.cs" />
  <Reference Include="UnityEngine.UI">
  <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
