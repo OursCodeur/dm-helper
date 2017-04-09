@@ -22,24 +22,24 @@ public class PlayerCardsPanel : MonoBehaviour {
 		foreach (Toggle hEdge in MapHorizEdgesPanel.GetComponentsInChildren<Toggle>())  { hEdge.isOn    = _reset; }
     }
 
-    public void ToggleFreezeBoard(Toggle ToggleButton) {
+    public void ToggleEditPlay(Toggle ToggleButton) {
 
         bool boardEnabled = ToggleButton.isOn;
 
-		EdgeSquareToggle.interactable 							=  boardEnabled;
-        ClearMapButton.interactable 							=  boardEnabled;
-        PlayerSquaresPanel.GetComponent<Graphic>().raycastTarget 		= !boardEnabled;
-        FreezeCardsPanel.GetComponent<Graphic>().raycastTarget 	=  boardEnabled;
+		EdgeSquareToggle.interactable 							    =  boardEnabled;
+        ClearMapButton.interactable 							    =  boardEnabled;
+        PlayerSquaresPanel.GetComponent<Graphic>().raycastTarget 	= !boardEnabled;
+        FreezeCardsPanel.GetComponent<Graphic>().raycastTarget 	    =  boardEnabled;
 
 		foreach (Button gridSquare in PlayerSquaresPanel.GetComponentsInChildren<Button>()) {
-			gridSquare.GetComponent<Image> ().raycastTarget = !boardEnabled;
+			gridSquare.GetComponent<Image> ().raycastTarget         = !boardEnabled;
 		}
 
 		ToggleButton.GetComponentInChildren<Text>().text = (boardEnabled == true) ? "Edit Mode" : "Play Mode" ;
 
     }
 
-    public void ToggleSquareCollisions(Toggle ToggleButton) {
+    public void ToggleSquareEdge(Toggle ToggleButton) {
 
 		foreach (GameObject square in GameObject.FindGameObjectsWithTag("Square")) {
 			square.GetComponent<Toggle>().GetComponent<CanvasGroup>().blocksRaycasts = !ToggleButton.isOn;

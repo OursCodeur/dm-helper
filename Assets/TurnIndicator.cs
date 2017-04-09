@@ -10,20 +10,20 @@ public class TurnIndicator : MonoBehaviour {
 
     void Start() {
 
-        thisTurnGrid = GameObject.FindGameObjectWithTag("TurnGrid");
+        thisTurnGrid = GameObject.FindGameObjectWithTag("Grid");
         thisToggle.onValueChanged.AddListener(delegate { ButtonClicked(); });
     }
 
     public void ButtonClicked() {
 
         bool allSelected = true;
-        foreach (GridButton gridButton in thisTurnGrid.GetComponentsInChildren<GridButton>()) {
+        foreach (PlayerCard gridButton in thisTurnGrid.GetComponentsInChildren<PlayerCard>()) {
             if (gridButton.thisInputField.gameObject.activeSelf == true) {
                 allSelected &= (gridButton.thisTurnIndicator.GetComponent<Toggle>().isOn == true) ? true : false;
             }
         }
         if (allSelected) {
-            foreach (GridButton gridButton in thisTurnGrid.GetComponentsInChildren<GridButton>()) {
+            foreach (PlayerCard gridButton in thisTurnGrid.GetComponentsInChildren<PlayerCard>()) {
                 if (gridButton.thisInputField.gameObject.activeSelf == true) {
                     gridButton.thisTurnIndicator.GetComponent<Toggle>().isOn = false;
                 }
