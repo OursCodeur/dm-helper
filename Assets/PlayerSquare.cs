@@ -1,39 +1,43 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
 
-public class PlayerSquare : MonoBehaviour {
+public class PlayerSquare : MonoBehaviour
+{
+    public PlayerSquaresPanel ParentPlayerSquaresPanel;
+    private Button _parentButton;
+    public Button CurrentPlayerCard;
 
-	public  PlayerSquaresPanel  ParentPlayerSquaresPanel;
-	private	Button              ParentButton;
-	public  Button              CurrentPlayerCard;
+    private void Start()
+    {
+        _parentButton = GetComponent<Button>();
+        _parentButton.onClick.AddListener(ButtonClicked);
+    }
 
-	void Start () {
+    public void ButtonClicked()
+    {
+        if (ParentPlayerSquaresPanel.GetComponent<PlayerSquaresPanel>().CurrentPlayerCard == null) return;
+        foreach (var button in ParentPlayerSquaresPanel.GetComponentsInChildren<Button>())
+        {
+            if (button.GetComponent<PlayerSquare>().CurrentPlayerCard == ParentPlayerSquaresPanel
+                    .GetComponent<PlayerSquaresPanel>()
+                    .CurrentPlayerCard)
+            {
+                button.GetComponent<PlayerSquare>().CurrentPlayerCard = null;
+            }
+        }
 
-		ParentButton = GetComponent<Button> ();
-		ParentButton.onClick.AddListener (delegate {ButtonClicked(); });
-	}
+        CurrentPlayerCard = ParentPlayerSquaresPanel.GetComponent<PlayerSquaresPanel>().CurrentPlayerCard;
+        ParentPlayerSquaresPanel.GetComponent<PlayerSquaresPanel>().CurrentPlayerCard = null;
+        CurrentPlayerCard.GetComponent<TwoDCoord>().Coord = _parentButton.GetComponent<TwoDCoord>().Coord;
 
-	public void ButtonClicked() {
-
-		if (ParentPlayerSquaresPanel.GetComponent<PlayerSquaresPanel> ().currentPlayerCard != null) {
-
-			foreach (Button button in ParentPlayerSquaresPanel.GetComponentsInChildren<Button>()) {
-				if (button.GetComponent<PlayerSquare> ().CurrentPlayerCard == ParentPlayerSquaresPanel.GetComponent<PlayerSquaresPanel> ().currentPlayerCard) {
-					button.GetComponent<PlayerSquare> ().CurrentPlayerCard = null;
-				}
-			}
-
-			CurrentPlayerCard = ParentPlayerSquaresPanel.GetComponent<PlayerSquaresPanel> ().currentPlayerCard;
-            ParentPlayerSquaresPanel.GetComponent<PlayerSquaresPanel> ().currentPlayerCard = null;
-			CurrentPlayerCard.GetComponent<TwoDCoord> ().coord = ParentButton.GetComponent<TwoDCoord> ().coord;
-			
-			foreach (Button button in ParentPlayerSquaresPanel.GetComponentsInChildren<Button>()) {
-				if (button.GetComponent<PlayerSquare> ().CurrentPlayerCard == null) {
-					button.GetComponent<Graphic> ().raycastTarget = false;
-					button.GetComponent<Graphic> ().color = Color.clear;
-				}
-			}
-			ParentButton.GetComponent<Graphic> ().color = CurrentPlayerCard.GetComponent<PlayerCard> ().CardColorPicker.GetComponent<Graphic> ().color;
-		}
-	}
+        foreach (var button in ParentPlayerSquaresPanel.GetComponentsInChildren<Button>())
+        {
+            if (button.GetComponent<PlayerSquare>().CurrentPlayerCard != null) continue;
+            button.GetComponent<Graphic>().raycastTarget = false;
+            button.GetComponent<Graphic>().color = Color.clear;
+        }
+        _parentButton.GetComponent<Graphic>().color = CurrentPlayerCard.GetComponent<PlayerCard>()
+            .CardColorPicker.GetComponent<Graphic>()
+            .color;
+    }
 }

@@ -1,27 +1,30 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
 
-public class PlayerCardColorPicker : MonoBehaviour {
-	
-	private Button 		ParentButton;
-	public TwoDCoord 	ParentTwoDCoords;
-    public Color[]      ColorArray;
-    private int         ColorArrayIndex = 0;
+public class PlayerCardColorPicker : MonoBehaviour
+{
+    public TwoDCoord ParentTwoDCoords;
+    public Color[] ColorArray;
+    private Button _parentButton;
+    private int _colorArrayIndex;
 
-	void Start () {
+    private void Start()
+    {
+        _colorArrayIndex = 0;
+        _parentButton = transform.GetComponent<Button>();
+        _parentButton.onClick.AddListener(ButtonClicked);
+    }
 
-        ParentButton = this.transform.GetComponent<Button>();
-        ParentButton.onClick.AddListener (delegate {ButtonClicked(); });
-	}
-	
-	public void ButtonClicked() {
+    public void ButtonClicked()
+    {
+        _colorArrayIndex = (_colorArrayIndex + 1) % ColorArray.Length;
+        _parentButton.GetComponent<Graphic>().color = ColorArray[_colorArrayIndex];
 
-        ColorArrayIndex = (ColorArrayIndex + 1) % ColorArray.Length;
-        ParentButton.GetComponent<Graphic> ().color = ColorArray[ColorArrayIndex];
-
-		if (ParentTwoDCoords.coord != new Vector2(-1,-1)) {
-            GameObject playerGrid = GameObject.FindGameObjectWithTag("Grid");
-            playerGrid.GetComponent<PlayerSquaresPanel> ().PlayerSquaresArray [(int)ParentTwoDCoords.coord.x, (int)ParentTwoDCoords.coord.y].GetComponent<Graphic> ().color = ColorArray[ColorArrayIndex];
-		}
-	}
+        if (ParentTwoDCoords.Coord == new Vector2(-1, -1)) return;
+        var playerGrid = GameObject.FindGameObjectWithTag("Grid");
+        playerGrid.GetComponent<PlayerSquaresPanel>()
+            .PlayerSquaresArray[(int) ParentTwoDCoords.Coord.x, (int) ParentTwoDCoords.Coord.y]
+            .GetComponent<Graphic>()
+            .color = ColorArray[_colorArrayIndex];
+    }
 }

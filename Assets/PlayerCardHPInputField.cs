@@ -1,20 +1,21 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
 
-public class PlayerCardHPInputField : MonoBehaviour {
+public class PlayerCardHpInputField : MonoBehaviour
+{
+    public InputField ParentHpInputField;
+    public Outline ParentOutline;
 
-    public InputField   ParentHPInputField;
-    public Outline      ParentOutline;
-
-    void Start () {
-
-        ParentHPInputField.onEndEdit.AddListener(delegate { HPUpdate(); });
+    private void Start()
+    {
+        ParentHpInputField.onEndEdit.AddListener(delegate { HpUpdate(); });
     }
-	
-	private void HPUpdate() {
 
-        if (ParentHPInputField.text != "") {
-            ParentOutline.effectColor = (int.Parse(ParentHPInputField.text) <= 0) ? new Color(1, 0, 0, .5f) : new Color(0, 0, 0, .5f);
-        }
+    private void HpUpdate()
+    {
+        if (ParentHpInputField.text == "") return;
+        ParentOutline.effectColor = int.Parse(ParentHpInputField.text) <= 0
+            ? new Color(1, 0, 0, .5f)
+            : new Color(0, 0, 0, .5f);
     }
 }

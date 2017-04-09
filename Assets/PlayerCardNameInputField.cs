@@ -1,12 +1,12 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
 
-public class PlayerCardNameInputField : MonoBehaviour {
+public class PlayerCardNameInputField : MonoBehaviour
+{
+    public InputField ParentNameInputField;
 
-	public InputField ParentNameInputField;
-
-	void Start () {
-
-        ParentNameInputField.gameObject.SetActive (false);
-	}
+    private void Start()
+    {
+        ParentNameInputField.gameObject.SetActive(false);
+    }
 }

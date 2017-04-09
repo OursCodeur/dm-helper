@@ -63,6 +63,6 @@ C:\Users\T800\Documents\dm-helper\Temp\bin\Debug\nunit.framework.xml
 C:\Users\T800\Documents\dm-helper\Temp\bin\Debug\UnityEngine.Analytics.xml
 C:\Users\T800\Documents\dm-helper\Temp\bin\Debug\UnityEngine.HoloLens.xml
 C:\Users\T800\Documents\dm-helper\Temp\bin\Debug\UnityEngine.VR.xml
+C:\Users\T800\Documents\dm-helper\obj\Debug\Assembly-CSharp.csprojResolveAssemblyReference.cache
 C:\Users\T800\Documents\dm-helper\obj\Debug\Assembly-CSharp.dll
 C:\Users\T800\Documents\dm-helper\obj\Debug\Assembly-CSharp.pdb
-C:\Users\T800\Documents\dm-helper\obj\Debug\Assembly-CSharp.csprojResolveAssemblyReference.cache

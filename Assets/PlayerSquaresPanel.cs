@@ -2,25 +2,27 @@
 using UnityEngine.UI;
 using System.Linq;
 
-public class PlayerSquaresPanel : MonoBehaviour {
+public class PlayerSquaresPanel : MonoBehaviour
+{
+    public Button PlayerSquarePrefab;
+    public Button[,] PlayerSquaresArray;
+    public Button CurrentPlayerCard;
 
-	public Button 		PlayerSquarePrefab;
-	public Button[,] 	PlayerSquaresArray;
-	public Button 		currentPlayerCard;
+    private const int Width = 17;
+    private const int Height = 17;
 
-	int WIDTH 			= 17;
-	int HEIGHT 			= 17;
-
-	void Start () {
-
-        PlayerSquaresArray = new Button[WIDTH,HEIGHT];
-		foreach (int y in Enumerable.Range(0, HEIGHT)) {
-			foreach (int x in Enumerable.Range(0, WIDTH)) {
+    private void Start()
+    {
+        PlayerSquaresArray = new Button[Width, Height];
+        foreach (var y in Enumerable.Range(0, Height))
+        {
+            foreach (var x in Enumerable.Range(0, Width))
+            {
                 PlayerSquaresArray[x, y] = Instantiate(PlayerSquarePrefab);
-                PlayerSquaresArray[x, y].GetComponent<TwoDCoord> ().coord = new Vector2(x,y);
-                PlayerSquaresArray[x, y].GetComponent<PlayerSquare> ().ParentPlayerSquaresPanel = this;
-                PlayerSquaresArray[x, y].transform.SetParent(this.transform, false);
-			}
-		}
-	}
+                PlayerSquaresArray[x, y].GetComponent<TwoDCoord>().Coord = new Vector2(x, y);
+                PlayerSquaresArray[x, y].GetComponent<PlayerSquare>().ParentPlayerSquaresPanel = this;
+                PlayerSquaresArray[x, y].transform.SetParent(transform, false);
+            }
+        }
+    }
 }
