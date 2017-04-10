@@ -7,8 +7,8 @@ public class MapHorizEdgesPanel : MonoBehaviour
     public Toggle MapHorizEdgePrefab;
     public Toggle[,] MapHorizEdgesArray;
 
-    private const int Width = 17;
-    private const int Height = 16;
+    private const int Width = 18;
+    private const int Height = 17;
 
     private void Start()
     {

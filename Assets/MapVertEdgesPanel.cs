@@ -7,8 +7,8 @@ public class MapVertEdgesPanel : MonoBehaviour
     public Toggle MapVertEdgePrefab;
     public Toggle[,] MapVertEdgesArray;
 
-    private const int Width = 16;
-    private const int Height = 17;
+    private const int Width = 17;
+    private const int Height = 18;
 
     private void Start()
     {

@@ -8,8 +8,8 @@ public class PlayerSquaresPanel : MonoBehaviour
     public Button[,] PlayerSquaresArray;
     public Button CurrentPlayerCard;
 
-    private const int Width = 17;
-    private const int Height = 17;
+    private const int Width = 18;
+    private const int Height = 18;
 
     private void Start()
     {
